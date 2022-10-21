@@ -1,0 +1,246 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({IntroText = "Bstory Script",Name = "Bstory Gui v1.0.1", HidePremium = false, SaveConfig = true, ConfigFolder = "DoorsSex"})
+local Tab = Window:MakeTab({
+	Name = "Mod",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Mink v4",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/BstoryVn/MinhV4BloxFruits/FreeScript/ScriptByBstory"))()
+
+  	end   
+})
+
+local Tab = Window:MakeTab({
+	Name = "Farm Script",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Mokuro Hub",
+	Callback = function()
+      		loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/ScriptLoader")()
+
+  	end   
+})
+
+Tab:AddButton({
+	Name = "Zen Hub",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/Kaizenofficiall/ZenHub/main/Loader", true))()
+
+  	end   
+})
+
+Tab:AddButton({
+	Name = "Zama Hub",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/RimuruScripter/Zama-Hub/main/LoadingScriptNew"))()
+
+  	end   
+})
+
+Tab:AddButton({
+	Name = "HoHo Hub",
+	Callback = function()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
+
+  	end   
+})
+
+Tab:AddButton({
+	Name = "Neva Hub",
+	Callback = function()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/VEZ2/NEVAHUB/main/2'))()
+
+  	end   
+})
+
+Tab:AddButton({
+	Name = "SXNUMZ HUB",
+	Callback = function()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/SixnumzWOC/Sxnumz/main/SixnumFreeScript.lua'))()
+
+  	end   
+})
+
+Tab:AddButton({
+	Name = "Thunder Z Hub",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/ThunderZ-05/HUB/main/Script"))()
+
+  	end   
+})
+
+Tab:AddButton({
+	Name = "Nub.xyz Hub",
+	Callback = function()
+      		loadstring(game:HttpGet('https://rawscripts.net/raw/UPDATE-16-Blox-Fruits-Nub-V1-Hub-4583'))()
+
+  	end   
+})
+
+local Tab = Window:MakeTab({
+	Name = "Sub Script",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Auto Chest",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/BstoryVn/AutoChest/FreeScript/source", true))()
+  	end   
+})
+
+Tab:AddButton({
+	Name = "W azure Hub Aim",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/vinhuchi/rblx/main/W-azure/Free/huhubileaksource.lua"))()
+  	end   
+})
+
+Tab:AddButton({
+	Name = "Thunder Z Aim",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/ThunderZ-HUB/HUB/main/Aimbot"))()
+  	end   
+})
+
+Tab:AddButton({
+	Name = "Auto Hop True Triple Katana ( Use In Sea 2 )",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/vinhuchi/rblx/main/W-azure/Free/AutoSwordHop.lua"))()
+  	end   
+})
+
+Tab:AddButton({
+	Name = "Auto Hop Haki ( Use In Sea 2,3 )",
+	Callback = function()
+      		getgenv().HakiColor = {
+"Orange Soda","Bright yellow","Yellow Sunshine",
+"Slimy Green","Green Lizard","Blue Jeans",
+"Plump Purple","Fiery Rose","Heat Wave",
+"Absolute Zero","Snow White","Pure Red","Winter Sky",
+}   
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vinhuchi/rblx/main/W-azure/Free/AutoColorHop.lua"))()
+  	end   
+})
+
+local Tab = Window:MakeTab({
+	Name = "Paid Script",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "http://discord.gg/w-azure ( Discord W azure)",
+	Callback = function()
+      		
+
+  	end   
+})
+
+Tab:AddButton({
+	Name = "https://discord.gg/seahub ( Discord Sea Hub)",
+	Callback = function()
+      		
+
+  	end   
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+local CreditsTab = Window:MakeTab({
+    Name = "Support",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+ 
+CreditsTab:AddParagraph("Credits ","Support - Discord E.#7777")
+ 
+coroutine.resume(NotificationCoroutine)
+ 
+OrionLib:Init()
+ 
+task.wait(2)
+
