@@ -1,0 +1,642 @@
+	page7:Label("Raid")
+
+	page7:Drop("Select Microchip",false,{"Flame","Ice","Quake","Light","Dark","String","Rumble","Magma","Human: Buddha"},function(t)
+		_G.CHIP = t
+	end)
+
+	page7:Toggle("Auto Raid",_G.autoraid,function(t)
+		_G.autoraid = t
+	end)
+	game:GetService("RunService").RenderStepped:Connect(function()
+		if _G.autoraid then
+			game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+		end
+	end)
+
+	if NewWorld then
+		spawn(function()
+			while wait(.1) do
+				if _G.autoraid then
+					for i,v in pairs(game.Workspace:GetChildren()) do
+						if string.find(v.Name, "Fruit") then
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame
+						end
+					end
+
+					if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Timer.Visible == false then
+						if not game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 1")  then
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("RaidsNpc", "Select", _G.CHIP)
+						end
+						if not game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 1") and game.Players.LocalPlayer.Backpack:FindFirstChild("Special Microchip") or  game.Players.LocalPlayer.Character:FindFirstChild("Special Microchip")  then
+							fireclickdetector(game:GetService("Workspace").Map.CircleIsland.RaidSummon2.Button.Main.ClickDetector)
+						end
+					end
+					for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+						if _G.autoraid and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 500 then
+							pcall(function()
+								repeat wait(.1)
+									if setsimulationradius then
+										sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+									end
+									v.HumanoidRootPart.Transparency = 70
+									v.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
+									v.HumanoidRootPart.CanCollide = false
+									if v.Humanoid.Health > 0 then
+										v.Humanoid.Health = 0 
+									elseif v.Humanoid.Health == 0 then
+										v.Humanoid.Health = v.Humanoid.MaxHealth
+									else
+										v.Humanoid.Health = 0 
+									end
+								until not _G.autoraid or not v.Parent or v.Humanoid.Health <= 0
+							end)
+						end
+					end
+					spawn(function()
+						while wait() do
+							pcall(function()
+								if _G.autoraid then
+									sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+								end
+							end) 
+						end
+					end)
+					if game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland5") or game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland4") or game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland3") or game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland2") or game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland1") then
+						if game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland5") then
+
+							totarget(game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland5"):FindFirstChildWhichIsA("Part").CFrame*CFrame.new(0,20,0))
+
+						elseif game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland4") then
+
+							totarget(game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland4"):FindFirstChildWhichIsA("Part").CFrame*CFrame.new(0,20,0))
+
+						elseif game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland3") then
+
+							totarget(game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland3"):FindFirstChildWhichIsA("Part").CFrame*CFrame.new(0,20,0))
+
+						elseif game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland2") then
+
+							totarget(game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland2"):FindFirstChildWhichIsA("Part").CFrame*CFrame.new(0,20,0))
+
+						elseif game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland1") then
+
+
+
+						end
+					end
+					local args = {
+						[1] = "Awakener",
+						[2] = "Check"
+					}
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+					local args = {
+						[1] = "Awakener",
+						[2] = "Awaken"
+					}
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+				end
+			end
+		end)
+	end
+
+	if ThreeWorld then
+		spawn(function()
+			while wait(.1) do
+				if _G.autoraid then
+					for i,v in pairs(game.Workspace:GetChildren()) do
+						if string.find(v.Name, "Fruit") then
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame
+						end
+					end
+					if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Timer.Visible == false then
+						if not game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 1")  then
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("RaidsNpc", "Select", _G.CHIP)
+						end
+						if not game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 1") and game.Players.LocalPlayer.Backpack:FindFirstChild("Special Microchip") or  game.Players.LocalPlayer.Character:FindFirstChild("Special Microchip")  then
+							fireclickdetector(game:GetService("Workspace").Map["Boat Castle"].RaidSummon2.Button.Main.ClickDetector)
+						end
+					end
+					for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+						if _G.autoraid and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 500 then
+							pcall(function()
+								repeat wait(.1)
+									if setsimulationradius then
+										sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+									end
+									v.HumanoidRootPart.Transparency = 70
+									v.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
+									v.HumanoidRootPart.CanCollide = false
+									if v.Humanoid.Health > 0 then
+										v.Humanoid.Health = 0 
+									elseif v.Humanoid.Health == 0 then
+										v.Humanoid.Health = v.Humanoid.MaxHealth
+									else
+										v.Humanoid.Health = 0 
+									end
+								until not _G.autoraid or not v.Parent or v.Humanoid.Health <= 0
+							end)
+						end
+					end
+					spawn(function()
+						while wait() do
+							pcall(function()
+								if _G.autoraid then
+									sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+								end
+							end) 
+						end
+					end)
+					if game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland5") or game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland4") or game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland3") or game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland2") or game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland1") then
+						if game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland5") then
+
+							totarget(game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland5"):FindFirstChildWhichIsA("Part").CFrame*CFrame.new(0,20,0))
+
+						elseif game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland4") then
+
+							totarget(game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland4"):FindFirstChildWhichIsA("Part").CFrame*CFrame.new(0,20,0))
+
+						elseif game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland3") then
+
+							totarget(game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland3"):FindFirstChildWhichIsA("Part").CFrame*CFrame.new(0,20,0))
+
+						elseif game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland2") then
+
+							totarget(game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland2"):FindFirstChildWhichIsA("Part").CFrame*CFrame.new(0,20,0))
+
+						elseif game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland1") then
+
+
+
+						end
+					end
+					local args = {
+						[1] = "Awakener",
+						[2] = "Check"
+					}
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+					local args = {
+						[1] = "Awakener",
+						[2] = "Awaken"
+					}
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+				end
+			end
+		end)
+	end
+
+	page7:Toggle("Auto Raid (Hop)",_G.autoraidhop,function(t)
+		_G.autoraidhop = t
+	end)
+	game:GetService("RunService").RenderStepped:Connect(function()
+		if _G.autoraidhop then
+			game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+		end
+	end)
+
+	if NewWorld then
+		spawn(function()
+			while wait(.1) do
+				if _G.autoraidhop then
+					for i,v in pairs(game.Workspace:GetChildren()) do
+						if string.find(v.Name, "Fruit") then
+							v.Handle.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+						end
+					end
+					if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Timer.Visible == false then
+						if not game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 1")  then
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("RaidsNpc", "Select", _G.CHIP)
+						end
+						wait(1)
+						if not game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 1") and game.Players.LocalPlayer.Backpack:FindFirstChild("Special Microchip") or  game.Players.LocalPlayer.Character:FindFirstChild("Special Microchip")  then
+							fireclickdetector(game:GetService("Workspace").Map.CircleIsland.RaidSummon2.Button.Main.ClickDetector)
+						end
+					end
+					for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+						if _G.autoraidhop and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 500 then
+							pcall(function()
+								repeat wait(.1)
+									if setsimulationradius then
+										sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+									end
+									v.HumanoidRootPart.Transparency = 70
+									v.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
+									v.HumanoidRootPart.CanCollide = false
+									if v.Humanoid.Health > 0 then
+										v.Humanoid.Health = 0 
+									elseif v.Humanoid.Health == 0 then
+										v.Humanoid.Health = v.Humanoid.MaxHealth
+									else
+										v.Humanoid.Health = 0 
+									end
+								until not _G.autoraidhop or not v.Parent or v.Humanoid.Health <= 0
+							end)
+						end
+					end
+					spawn(function()
+						while wait() do
+							pcall(function()
+								if _G.autoraidhop then
+									sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+								end
+							end) 
+						end
+					end)
+					if game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland5") or game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland4") or game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland3") or game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland2") or game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland1") then
+						if game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland5") then
+
+							totarget(game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland5"):FindFirstChildWhichIsA("Part").CFrame*CFrame.new(0,20,0))
+
+						elseif game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland4") then
+
+							totarget(game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland4"):FindFirstChildWhichIsA("Part").CFrame*CFrame.new(0,20,0))
+
+						elseif game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland3") then
+
+							totarget(game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland3"):FindFirstChildWhichIsA("Part").CFrame*CFrame.new(0,20,0))
+
+						elseif game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland2") then
+
+							totarget(game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland2"):FindFirstChildWhichIsA("Part").CFrame*CFrame.new(0,20,0))
+
+						elseif game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland1") then
+
+
+
+						end
+					end
+					local args = {
+						[1] = "Awakener",
+						[2] = "Check"
+					}
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+					local args = {
+						[1] = "Awakener",
+						[2] = "Awaken"
+					}
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+				end
+			end
+		end)
+	end
+
+	if ThreeWorld then
+		spawn(function()
+			while wait(.1) do
+				if _G.autoraidhop then
+					for i,v in pairs(game.Workspace:GetChildren()) do
+						if string.find(v.Name, "Fruit") then
+							v.Handle.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+						end
+					end
+					if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Timer.Visible == false then
+						if not game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 1")  then
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("RaidsNpc", "Select", _G.CHIP)
+						end
+						wait(1)
+						if not game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 1") and game.Players.LocalPlayer.Backpack:FindFirstChild("Special Microchip") or  game.Players.LocalPlayer.Character:FindFirstChild("Special Microchip")  then
+							fireclickdetector(game:GetService("Workspace").Map["Boat Castle"].RaidSummon2.Button.Main.ClickDetector)
+						end
+					end
+					for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+						if _G.autoraidhop and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 500 then
+							pcall(function()
+								repeat wait(.1)
+									if setsimulationradius then
+										sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+									end
+									v.HumanoidRootPart.Transparency = 70
+									v.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
+									v.HumanoidRootPart.CanCollide = false
+									if v.Humanoid.Health > 0 then
+										v.Humanoid.Health = 0 
+									elseif v.Humanoid.Health == 0 then
+										v.Humanoid.Health = v.Humanoid.MaxHealth
+									else
+										v.Humanoid.Health = 0 
+									end
+								until not _G.autoraidhop or not v.Parent or v.Humanoid.Health <= 0
+							end)
+						end
+					end
+					spawn(function()
+						while wait() do
+							pcall(function()
+								if _G.autoraidhop then
+									sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+								end
+							end) 
+						end
+					end)
+					if game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland5") or game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland4") or game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland3") or game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland2") or game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland1") then
+						if game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland5") then
+
+							totarget(game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland5"):FindFirstChildWhichIsA("Part").CFrame*CFrame.new(0,20,0))
+
+						elseif game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland4") then
+
+							totarget(game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland4"):FindFirstChildWhichIsA("Part").CFrame*CFrame.new(0,20,0))
+
+						elseif game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland3") then
+
+							totarget(game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland3"):FindFirstChildWhichIsA("Part").CFrame*CFrame.new(0,20,0))
+
+						elseif game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland2") then
+
+							totarget(game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland2"):FindFirstChildWhichIsA("Part").CFrame*CFrame.new(0,20,0))
+
+						elseif game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland1") then
+
+
+
+						end
+					end
+					local args = {
+						[1] = "Awakener",
+						[2] = "Check"
+					}
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+					local args = {
+						[1] = "Awakener",
+						[2] = "Awaken"
+					}
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+				end
+			end
+		end)
+	end
+
+
+	spawn(function()
+		while wait(35) do
+			if _G.autoraidhop then
+				if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Timer.Visible == false then
+					local PlaceID = game.PlaceId
+					local AllIDs = {}
+					local foundAnything = ""
+					local actualHour = os.date("!*t").hour
+					local Deleted = false
+          --[[
+          local File = pcall(function()
+             AllIDs = game:GetService('HttpService'):JSONDecode(readfile("NotSameServers.json"))
+          end)
+          if not File then
+             table.insert(AllIDs, actualHour)
+             writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
+          end
+          ]]
+					function TPReturner()
+						local Site;
+						if foundAnything == "" then
+							Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100'))
+						else
+							Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100&cursor=' .. foundAnything))
+						end
+						local ID = ""
+						if Site.nextPageCursor and Site.nextPageCursor ~= "null" and Site.nextPageCursor ~= nil then
+							foundAnything = Site.nextPageCursor
+						end
+						local num = 0;
+						for i,v in pairs(Site.data) do
+							local Possible = true
+							ID = tostring(v.id)
+							if tonumber(v.maxPlayers) > tonumber(v.playing) then
+								for _,Existing in pairs(AllIDs) do
+									if num ~= 0 then
+										if ID == tostring(Existing) then
+											Possible = false
+										end
+									else
+										if tonumber(actualHour) ~= tonumber(Existing) then
+											local delFile = pcall(function()
+												-- delfile("NotSameServers.json")
+												AllIDs = {}
+												table.insert(AllIDs, actualHour)
+											end)
+										end
+									end
+									num = num + 1
+								end
+								if Possible == true then
+									table.insert(AllIDs, ID)
+									wait()
+									pcall(function()
+										-- writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
+										wait()
+										game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceID, ID, game.Players.LocalPlayer)
+									end)
+									wait(4)
+								end
+							end
+						end
+					end
+
+					function Teleport()
+						while wait() do
+							pcall(function()
+								TPReturner()
+								if foundAnything ~= "" then
+									TPReturner()
+								end
+							end)
+						end
+					end
+
+					Teleport()
+				end
+			end
+		end
+	end)
+
+	Distance = 1000
+
+	page7:Toggle("Kill Aura",false,function(value)
+		RaidsArua = value
+	end)
+	page7:Toggle("Auto Next Island",false,function(value)
+		NextIsland = value
+	end)
+	page7:Toggle("Auto Awake",false,function(value)
+		Awakener = value
+	end)
+	if NewWorld then
+		page7:Button("Teleport to Lab",function()
+			totarget(CFrame.new(-6438.73535, 250.645355, -4501.50684))
+		end)
+	end
+	if ThreeWorld then
+		page7:Button("Teleport to Lab",function()
+			totarget(CFrame.new(-5017.40869, 314.844055, -2823.0127))
+		end)
+	end
+	page7:Button("Awakening Room",function()
+		totarget(CFrame.new(266.227783, 1.39509034, 1857.00732))
+	end)
+	spawn(function()
+		while wait(.1) do
+			if Awakener then
+				local args = {
+					[1] = "Awakener",
+					[2] = "Check"
+				}
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+				local args = {
+					[1] = "Awakener",
+					[2] = "Awaken"
+				}
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+			end
+		end
+	end)
+
+	game:GetService("RunService").RenderStepped:Connect(function()
+		if NextIsland then
+			game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+		end
+	end)
+
+	spawn(function()
+		while wait(.1) do
+			pcall(function()
+				if AutoNextIsland then
+					if game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland5") or game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland4") or game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland3") or game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland2") or game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland1") then
+						if game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland5") then
+
+							totarget(game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland5"):FindFirstChildWhichIsA("Part").CFrame*CFrame.new(0,20,0))
+
+						elseif game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland4") then
+
+							totarget(game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland4"):FindFirstChildWhichIsA("Part").CFrame*CFrame.new(0,20,0))
+
+						elseif game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland3") then
+
+							totarget(game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland3"):FindFirstChildWhichIsA("Part").CFrame*CFrame.new(0,20,0))
+
+						elseif game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland2") then
+
+							totarget(game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland2"):FindFirstChildWhichIsA("Part").CFrame*CFrame.new(0,20,0))
+
+						elseif game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland1") then
+
+
+
+						end
+					else
+						if NewWorld then
+							totarget(CFrame.new(-6438.73535, 250.645355, -4501.50684))
+						elseif ThreeWorld then
+							totarget(CFrame.new(-5017.40869, 314.844055, -2823.0127, -0.925743818, 4.48217499e-08, -0.378151238, 4.55503146e-09, 1, 1.07377559e-07, 0.378151238, 9.7681621e-08, -0.925743818))
+						end
+					end
+				end
+			end)
+		end
+	end)
+
+	spawn(function()
+		while wait(.1) do
+			if RaidsArua then
+				for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+					if RaidsArua and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 500 then
+						pcall(function()
+							repeat wait(.1)
+								if setsimulationradius then
+									sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+								end
+								v.HumanoidRootPart.Transparency = 1
+								v.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
+								v.HumanoidRootPart.CanCollide = false
+								if v.Humanoid.Health > 0 then
+									v.Humanoid.Health = 0 
+								elseif v.Humanoid.Health == 0 then
+									v.Humanoid.Health = v.Humanoid.MaxHealth
+								else
+									v.Humanoid.Health = 0 
+								end
+							until not RaidsArua or not v.Parent or v.Humanoid.Health <= 0
+						end)
+					end
+				end
+			end
+		end
+	end)
+
+
+	page11:TextBox("Web Hook",". . .",function(x)
+		_G.WebHook = x
+	end)
+
+	page11:Toggle("Send Webhook",false,function(a)
+		_G.Kaitun = a
+	end)
+	
+	page11:Line()
+	
+	game:GetService("Players").LocalPlayer.Data.Level.Changed:connect(function()
+		if _G.Kaitun then
+			local url = tostring(_G.WebHook)
+			RigC = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
+
+
+			local data = {
+				["content"] = "<@!"..tostring(_G.discordId)..">",
+				["embeds"] = {
+					{
+						["title"] = "**Webhook**",
+						["description"] = "Username : ||".. game.Players.LocalPlayer.Name.."|| \n Level :"..game:GetService("Players").LocalPlayer.Data.Level.Value.."\n Weapon : ".. tostring(RigC.activeController.currentWeaponModel),
+						["type"] = "rich",
+						["color"] = tonumber(0x899314),
+					}
+				}
+			} 
+			local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+			local headers = {
+				["content-type"] = "application/json"
+			}
+			request = http_request or request or HttpPost or syn.request
+			local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+			request(abcdef)
+		end
+	end)
+
+	local LocalPlayer = game:GetService'Players'.LocalPlayer
+	local originalstam = LocalPlayer.Character.Energy.Value
+	function infinitestam()
+		LocalPlayer.Character.Energy.Changed:connect(function()
+			if InfinitsEnergy then
+				LocalPlayer.Character.Energy.Value = originalstam
+			end 
+		end)
+	end
+	spawn(function()
+		while wait(.1) do
+			if InfinitsEnergy then
+				wait(0.3)
+				originalstam = LocalPlayer.Character.Energy.Value
+				infinitestam()
+			end
+		end
+	end)
+
+	nododgecool = false
+	function NoDodgeCool()
+		if nododgecool then
+			for i,v in next, getgc() do
+				if game.Players.LocalPlayer.Character.Dodge then
+					if typeof(v) == "function" and getfenv(v).script == game.Players.LocalPlayer.Character.Dodge then
+						for i2,v2 in next, getupvalues(v) do
+							if tostring(v2) == "0.4" then
+								repeat wait(.1)
+									setupvalue(v,i2,0)
+								until not nododgecool
+							end
+						end
+					end
+				end
+			end
+		end
+	end
